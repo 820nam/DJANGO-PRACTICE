@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\polls",
+    "\\polls\\migrations",
+    "\\polls\\templates",
+    "\\polls\\templates\\polls",
+    "\\polls\\__pycache__"
+  ],
+  "SelectedNode": "\\polls\\templates\\polls\\results.html",
+  "PreviewInSolutionExplorer": false
+}
