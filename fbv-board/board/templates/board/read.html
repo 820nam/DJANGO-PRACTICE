@@ -1,0 +1,27 @@
+{% extends 'board/base.html' %}  <!-- 'board/base.html' 템플릿을 상속받음 -->
+
+{% block title %}내용{% endblock %}  <!-- 'title' 블록에 '내용'이라는 제목 삽입 -->
+
+{% block content %}  <!-- 'content' 블록 시작 -->
+<table border="1">  <!-- 테이블 생성 -->
+    <tr>
+        <th>등록일</th>
+        <th>조회수</th>
+    </tr>
+    <tr>
+        <td>{{ board.regdate }}</td>  <!-- 등록일 출력 -->
+        <td>{{ board.readcount }}</td>  <!-- 조회수 출력 -->
+    </tr>
+    <tr>
+        <th>제목</th>
+        <td>{{ board.title }}</td>  <!-- 제목 출력 -->
+    </tr>
+    <tr>
+        <th>내용</th>
+        <td>{{ board.content }}</td>  <!-- 게시글 내용 출력 -->
+    </tr>
+</table>
+<a href="#"><button>수정</button></a>  <!-- 목록으로 돌아가기 버튼 -->
+<a href="#"><button>삭제</button></a>  <!-- 목록으로 돌아가기 버튼 -->
+<a href="{% url 'board:list' %}"><button>목록</button></a>  <!-- 목록으로 돌아가기 버튼 -->
+{% endblock %}  <!-- 'content' 블록 종료 -->

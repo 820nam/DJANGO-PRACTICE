@@ -1,0 +1,29 @@
+{% extends 'board/base.html' %}  <!-- 'board/base.html' 템플릿을 상속받음 -->
+
+{% block title %}list{% endblock %}  <!-- 'title' 블록에 'Index'라는 제목을 삽입 -->
+
+{% block content %}  <!-- 'content' 블록 시작 -->
+{% if board_list %}  <!-- 'content' 블록 시작 -->
+    <table border="1">
+        <tr>
+          <th>번호</th>
+          <th>제목</th>
+          <th>작성자</th>
+          <th>조회수</th>
+       </tr>
+    {% for board in board_list %}
+       <tr>
+          <td>{{ board.id }}</td>
+          <td><a href="{% url 'board:read' board.id %}">{{ board.title }}</a></td>
+          <td>{{ board.writer }}</td>
+          <td>{{ board.readcount }}</td>
+       </tr>
+    {% endfor %}
+    </table>
+{% else %}
+    <tr>
+        <td colspan="4">게시글이 존재하지 않습니다.</td>
+    </tr>
+{% endif %}
+<a href="#"><button>등록</button></a>
+{% endblock %}  <!-- 'content' 블록 종료 -->

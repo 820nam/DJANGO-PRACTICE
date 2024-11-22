@@ -1,8 +1,10 @@
-{% extends 'board/base.html' %}
-{% block title %}Index{% endblock %}
-{% block content %}
+{% extends 'board/base.html' %}  <!-- 'board/base.html' 템플릿을 상속받음 -->
+
+{% block title %}Index{% endblock %}  <!-- 'title' 블록에 'Index'라는 제목을 삽입 -->
+
+{% block content %}  <!-- 'content' 블록 시작 -->
 <ul>
-    <li><a href="#">목록</a></li>
-    <li><a href="#">등록</a></li>
+    <li><a href="{% url 'board:list'%}">목록</a></li>  <!-- 목록 링크 -->
+    <li><a href="#">등록</a></li>  <!-- 등록 링크 -->
 </ul>
-{% endblock %}
+{% endblock %}  <!-- 'content' 블록 종료 -->
