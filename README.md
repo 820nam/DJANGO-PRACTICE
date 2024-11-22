@@ -59,23 +59,3 @@ def list(request):
     }
     return render(request, 'board/list.html', context)
 
-
-
-템플릿
-게시글 목록 템플릿 (list.html)
-<table border="1">
-    <tr>
-        <th>번호</th>
-        <th>제목</th>
-        <th>작성자</th>
-        <th>조회수</th>
-    </tr>
-    {% for board in board_list %}
-    <tr>
-        <td>{{ board.id }}</td>
-        <td><a href="{% url 'board:read' board.id %}">{{ board.title }}</a></td>
-        <td>{{ board.writer }}</td>
-        <td>{{ board.readcount }}</td>
-    </tr>
-    {% endfor %}
-</table>
