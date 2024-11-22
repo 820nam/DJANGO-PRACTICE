@@ -2,31 +2,36 @@ Django Function-Based View 게시판
 Django의 함수형 뷰(Function-Based Views, FBV)를 활용한 간단한 게시판 프로젝트입니다.
 
 프로젝트 구조
+앱 구성
+
 board 앱: 게시판 기능을 담당.
-템플릿 구조:
+템플릿 구조
+
 base.html: 공통 레이아웃.
 index.html: 메인 페이지.
 list.html: 게시글 목록 페이지.
 read.html: 게시글 상세 보기 페이지.
-SQLite 데이터베이스 사용.
-기능
-게시글 목록 보기 (list):
+데이터베이스
 
+SQLite 사용.
+기능
+1. 게시글 목록 보기 (list)
 작성된 게시글을 테이블 형식으로 출력.
 제목을 클릭하면 해당 게시글의 상세 보기로 이동.
-게시글 상세 보기 (read):
-
+2. 게시글 상세 보기 (read)
 선택한 게시글의 상세 정보를 출력.
-등록일, 조회수, 제목, 내용 등 표시.
+출력 정보:
+등록일, 조회수, 제목, 내용 등.
 목록으로 돌아가기 버튼 제공.
-메인 페이지 (index):
-
+3. 메인 페이지 (index)
 게시판 기능의 진입점.
 게시글 목록 및 등록 링크 제공.
 URL 패턴
-/ : 메인 페이지 (index)
-/list/ : 게시글 목록 보기 (list)
-/read/<int:board_id>/ : 게시글 상세 보기 (read)
+URL	설명	연결 뷰 함수
+/	메인 페이지	index
+/list/	게시글 목록 보기	list
+/read/<int:id>/	게시글 상세 보기	read
+코드
 views.py 주요 코드
 list 뷰
 게시글 목록을 출력하는 뷰:
@@ -120,14 +125,17 @@ class Board(models.Model):
     def __str__(self):
         return self.title
 사용 방법
-프로젝트 시작:
+1. 프로젝트 시작
 bash
 코드 복사
 python manage.py runserver
-브라우저에서 다음 URL로 접속:
+2. 브라우저 접속
 메인 페이지: http://127.0.0.1:8000/
-게시글 목록: http://127.0.0.1:8000/list/
+게시글 목록 보기: http://127.0.0.1:8000/list/
 게시글 상세 보기: http://127.0.0.1:8000/read/<게시글ID>/
 주요 라이브러리
-Django (4.x)
-SQLite (기본 데이터베이스)
+Django: 4.x
+SQLite: 기본 데이터베이스로 사용.
+기타
+이 프로젝트는 Django 함수형 뷰를 학습 및 연습하는 목적으로 작성되었습니다.
+확장하려면 등록(create) 또는 수정(update) 기능을 추가해보세요!
