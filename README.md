@@ -3,18 +3,15 @@ Django의 함수형 뷰(Function-Based Views, FBV)를 활용한 간단한 게시
 
 프로젝트 구조
 앱 구성
-
-board 앱: 게시판 기능을 담당.
+board 앱: 게시판 기능 담당.
 템플릿 구조
-
 base.html: 공통 레이아웃.
 index.html: 메인 페이지.
 list.html: 게시글 목록 페이지.
 read.html: 게시글 상세 보기 페이지.
 데이터베이스
-
 SQLite 사용.
-기능
+기능 설명
 1. 게시글 목록 보기 (list)
 작성된 게시글을 테이블 형식으로 출력.
 제목을 클릭하면 해당 게시글의 상세 보기로 이동.
@@ -33,9 +30,7 @@ URL	설명	연결 뷰 함수
 /read/<int:id>/	게시글 상세 보기	read
 코드
 views.py 주요 코드
-list 뷰
-게시글 목록을 출력하는 뷰:
-
+게시글 목록 보기 (list)
 python
 코드 복사
 from django.shortcuts import render
@@ -47,9 +42,7 @@ def list(request):
         'board_list': board_list
     }
     return render(request, 'board/list.html', context)
-read 뷰
-게시글 상세 정보를 출력하는 뷰:
-
+게시글 상세 보기 (read)
 python
 코드 복사
 from django.shortcuts import render, get_object_or_404
@@ -62,9 +55,7 @@ def read(request, board_id):
     }
     return render(request, 'board/read.html', context)
 템플릿
-list.html
-게시글 목록을 출력하는 템플릿:
-
+1. 게시글 목록 템플릿 (list.html)
 html
 코드 복사
 <table border="1">
@@ -83,9 +74,7 @@ html
     </tr>
     {% endfor %}
 </table>
-read.html
-게시글 상세 정보를 출력하는 템플릿:
-
+2. 게시글 상세 보기 템플릿 (read.html)
 html
 코드 복사
 <table border="1">
@@ -109,8 +98,6 @@ html
 <a href="{% url 'board:list' %}"><button>목록으로</button></a>
 모델
 models.py
-게시판 데이터를 정의하는 Board 모델:
-
 python
 코드 복사
 from django.db import models
@@ -136,6 +123,3 @@ python manage.py runserver
 주요 라이브러리
 Django: 4.x
 SQLite: 기본 데이터베이스로 사용.
-기타
-이 프로젝트는 Django 함수형 뷰를 학습 및 연습하는 목적으로 작성되었습니다.
-확장하려면 등록(create) 또는 수정(update) 기능을 추가해보세요!
