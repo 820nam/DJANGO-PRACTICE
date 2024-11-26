@@ -59,18 +59,3 @@ Django의 함수형 뷰(Function-Based Views, FBV)를 활용한 간단한 게시
 | `/remove/<int:id>/`| 게시글 삭제         | `remove`     |
 
 ---
-
-## 주요 코드 설명
-
-### 게시글 목록 보기 (`list`)
-
-```python
-from django.shortcuts import render
-from .models import Board
-
-def list(request):
-    board_list = Board.objects.all()  # 모든 게시글 가져오기
-    context = {
-        'board_list': board_list
-    }
-    return render(request, 'board/list.html', context)
