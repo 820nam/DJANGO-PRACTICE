@@ -1,0 +1,10 @@
+{% extends 'board/base.html' %}  <!-- 부모 템플릿(base.html)을 상속 -->
+
+{% block title %}삭제{% endblock %}  <!-- 브라우저 탭 제목 설정 -->
+
+{% block content %}  <!-- 메인 콘텐츠 블록 -->
+<form method="POST">  <!-- POST 방식으로 폼 데이터를 전송 -->
+    {% csrf_token %}
+    삭제하시겠습니까? <button type="submit"> 예 </button>
+</from>
+{% endblock %}

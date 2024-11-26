@@ -1,0 +1,30 @@
+{% extends 'board/base.html' %}  <!-- 부모 템플릿(base.html)을 상속 -->
+
+{% block title %}등록{% endblock %}  <!-- 브라우저 탭 제목 설정 -->
+
+{% block content %}  <!-- 메인 콘텐츠 블록 -->
+<form method="post">  <!-- POST 방식으로 폼 데이터를 전송 -->
+    {% csrf_token %}  <!-- CSRF 보호 토큰 -->
+    <table border="1">  <!-- 입력 필드 테이블 -->
+        <tr>
+            <th>Title</th>  <!-- 제목 레이블 -->
+            <td>
+                <input type="text" name="title">  <!-- 제목 입력 필드 -->
+            </td>
+        </tr>
+        <tr>
+            <th>Writer</th>  <!-- 작성자 레이블 -->
+            <td>
+                <input type="text" name="writer">  <!-- 작성자 입력 필드 -->
+            </td>
+        </tr>
+        <tr>
+            <th>Content</th>  <!-- 내용 레이블 -->
+            <td>
+                <textarea name="content"></textarea>  <!-- 내용 입력 필드 -->
+            </td>
+        </tr>
+    </table>
+    <button type="submit">등록</button>  <!-- 폼 제출 버튼 -->
+</form>
+{% endblock %}  <!-- 콘텐츠 블록 끝 -->
